@@ -14,7 +14,6 @@
 		8CAE4E4A212DD2F0004B037C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E48212DD2F0004B037C /* Main.storyboard */; };
 		8CAE4E4C212DD2F3004B037C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E4B212DD2F3004B037C /* Assets.xcassets */; };
 		8CAE4E4F212DD2F3004B037C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E4D212DD2F3004B037C /* LaunchScreen.storyboard */; };
-		8CAE4E66212DD3AC004B037C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E56212DD3AC004B037C /* Helper.swift */; };
 		8CAE4E67212DD3AC004B037C /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E58212DD3AC004B037C /* whackBad.caf */; };
 		8CAE4E68212DD3AC004B037C /* penguinGood.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E59212DD3AC004B037C /* penguinGood.png */; };
 		8CAE4E69212DD3AC004B037C /* whackMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E5A212DD3AC004B037C /* whackMask.png */; };
@@ -30,6 +29,7 @@
 		8CAE4E73212DD3AC004B037C /* whackMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E64212DD3AC004B037C /* whackMask@2x.png */; };
 		8CAE4E74212DD3AC004B037C /* whackBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE4E65212DD3AC004B037C /* whackBackground@2x.png */; };
 		8CAE4E76212DD55F004B037C /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E75212DD55F004B037C /* WhackSlot.swift */; };
+		8CAE4E78212DE7D8004B037C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E77212DE7D8004B037C /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,6 @@
 		8CAE4E4B212DD2F3004B037C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CAE4E4E212DD2F3004B037C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CAE4E50212DD2F3004B037C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CAE4E56212DD3AC004B037C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8CAE4E58212DD3AC004B037C /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		8CAE4E59212DD3AC004B037C /* penguinGood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penguinGood.png; sourceTree = "<group>"; };
 		8CAE4E5A212DD3AC004B037C /* whackMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whackMask.png; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		8CAE4E64212DD3AC004B037C /* whackMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackMask@2x.png"; sourceTree = "<group>"; };
 		8CAE4E65212DD3AC004B037C /* whackBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackBackground@2x.png"; sourceTree = "<group>"; };
 		8CAE4E75212DD55F004B037C /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
+		8CAE4E77212DE7D8004B037C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				8CAE4E3E212DD2F0004B037C /* AppDelegate.swift */,
-				8CAE4E56212DD3AC004B037C /* Helper.swift */,
+				8CAE4E77212DE7D8004B037C /* Helper.swift */,
 				8CAE4E40212DD2F0004B037C /* GameScene.sks */,
 				8CAE4E44212DD2F0004B037C /* GameScene.swift */,
 				8CAE4E75212DD55F004B037C /* WhackSlot.swift */,
@@ -214,9 +214,9 @@
 			files = (
 				8CAE4E45212DD2F0004B037C /* GameScene.swift in Sources */,
 				8CAE4E76212DD55F004B037C /* WhackSlot.swift in Sources */,
+				8CAE4E78212DE7D8004B037C /* Helper.swift in Sources */,
 				8CAE4E47212DD2F0004B037C /* GameViewController.swift in Sources */,
 				8CAE4E3F212DD2F0004B037C /* AppDelegate.swift in Sources */,
-				8CAE4E66212DD3AC004B037C /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
