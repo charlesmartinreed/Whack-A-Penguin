@@ -48,6 +48,10 @@ class WhackSlot: SKNode {
     func show(hideTime: Double) {
         if isVisible { return }
         
+        //resize the xScale and yScale to prevent shrunken image from appearing after the player's successful hit
+        charNode.xScale = 1
+        charNode.yScale = 1
+        
         //this animation creates the effect of our penguin popping out of the hole
         charNode.run(SKAction.moveBy(x: 0, y: 80, duration: 0.05))
         
@@ -75,5 +79,16 @@ class WhackSlot: SKNode {
         charNode.run(SKAction.moveBy(x: 0, y: -80, duration: 0.05))
         isVisible = false
     }
-
+    
+    //this will handle hiding the penguin and crediting the player for a hit when they're able to do so in time
+    func hit() {
+        isHit = true
+        
+        //a delay for the user to see what they're attempting to tap, then we hide the penguin, then we set the isVisible for the penguin to false, and we use SKAction.sequence to execute these actions in order, only moving to the next when the previous one completes
+        let delay = SKAction.wait(forDuration: 0.25)
+        let hide = SKAction.moveBy(x: 0, y: -80, duration: 0.05)
+        let notVisible = SKAction.run { [unowned self] in self.isVisible = false }
+        charNode.run(SKAction.sequence([delay, hide, notVisible]))
+        
+    }
 }

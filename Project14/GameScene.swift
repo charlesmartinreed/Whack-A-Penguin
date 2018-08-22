@@ -11,6 +11,10 @@ import GameplayKit
 
 class GameScene: SKScene {
    
+    //this will control the number of rounds we allow for a session
+    //Each time we call createEnemy, we increment numRounds by 1
+    var numRounds = 0
+    
     //this array will hold our slots
     var slots = [WhackSlot]()
     
@@ -66,7 +70,42 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //stuff
+        //we're calling our hit check here
+        //we check the nodes registered as touched at our touch location, and see if either of them have the name "charFriend" or "charEnemy" and act accordingly.
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let tappedNodes = nodes(at: location)
+            
+            //call hit, subtract 5 from the current score and play the "bad hit" sound
+            for node in tappedNodes {
+                if node.name == "charFriend" {
+                    
+                    //because we tapped the penguin, and we need to handle our code according to the parent, ie, the crop node and that parent's parent, i.e, the WhackSlot object
+                    // this code continues through, only if the slot is visible AND it was hit
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.isVisible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    whackSlot.hit()
+                    score -= 5
+                    
+                    run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+                } else if node.name == "charEnemy" {
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.isVisible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    //shrinking the penguin to give visual indication that the hit was successful
+                    whackSlot.charNode.xScale = 0.85
+                    whackSlot.charNode.yScale = 0.85
+                    
+                    whackSlot.hit()
+                    score += 1
+                    
+                    run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+                }
+            }
+        }
     }
     
     //MARK: - createSlot()
@@ -81,6 +120,22 @@ class GameScene: SKScene {
     
     //MARK: - createEnemy()
     func createEnemy() {
+        numRounds += 1
+        
+        //hide our slots, show a game over sprite image and exit the function
+        if numRounds >= 30 {
+            for slot in slots {
+                slot.hide()
+            }
+        
+            let gameOver = SKSpriteNode(imageNamed: "gameOver")
+            gameOver.position = CGPoint(x: 512, y: 384)
+            gameOver.zPosition = 1
+            addChild(gameOver)
+        
+            return
+        }
+        
         //decreasing the popupTime by a fraction each time this is run
         popupTime *= 0.991
         
